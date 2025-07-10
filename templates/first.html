@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <style>
+      * {
+        font-family: Arial;
+        font-weight: bolder;
+        text-align: center;
+        align-items: center;
+        overflow:scroll;
+      }
+      body {
+        background-color: greenyellow;
+      }
+      p {
+        font-size:20px;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+
+  <body>
+      <p>This is an example for Flask app</p>
+      <img src="{{ url_for('static', filename='carti.jpeg') }}" alt="Carti"/>
+  </body>
+</html>
