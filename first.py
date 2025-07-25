@@ -1,9 +1,15 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
+    return render_template("index.html")
+
+@app.route("/first")
+def first():
     return render_template("first.html")
 
 app.run(debug=True)
