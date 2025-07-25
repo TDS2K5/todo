@@ -6,20 +6,22 @@
         font-weight: bolder;
         text-align: center;
         align-items: center;
-        overflow:scroll;
+        overflow: none;
       }
       body {
         background-color: greenyellow;
       }
       p {
-        font-size:20px;
+        font-size: 30px;
         background-color: aqua;
       }
     </style>
   </head>
 
   <body>
-      <p>This is an example for Flask app</p>
-      <img src="{{ url_for('static', filename='carti.jpeg') }}" alt="Carti"/>
+    <br />
+    <p>This is an example for Flask app</p>
+    <br />
+    <img src="{{ url_for('static', filename='carti.jpeg') }}" alt="Carti" />
   </body>
 </html>
