@@ -42,11 +42,21 @@ def delt(sno):
     db.session.commit()
     return redirect('/')
 
-@app.route("/update")
-def up():
-    allTodo=Todo.query.all()
-    print(allTodo)
-    return redirect('/')
+@app.route("/update/<int:sno>",methods=["get","post"])
+def up(sno):
+    if request.method=='POST':
+        title=request.form['title']
+        desc=request.form['desc']
+        todo=Todo.query.filter_by(sno=sno).first()
+        todo.title=title
+        todo.desc=desc
+        db.session.add(todo)
+        db.session.commit()
+        return redirect('/')
+
+    todo=Todo.query.filter_by(sno=sno).first()
+    return render_template("update.html",todo=todo)
+
 
 if __name__== "__main__":
     app.run(debug=True)
