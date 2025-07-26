@@ -14,7 +14,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">ToDo</a>
+        <a class="navbar-brand" href="/">ToDo</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -29,33 +29,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">About</a>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
+            
+            
           </ul>
           <form class="d-flex" role="search">
             <input
@@ -64,7 +44,7 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button class="btn btn-outline-dark" type="submit">
               Search
             </button>
           </form>
@@ -72,58 +52,67 @@
       </div>
     </nav>
 
+    <br />
     <div class="container">
       <h2>Add a ToDo</h2>
-      <form>
+      <br>
+      <form action="/" method="post">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
             type="text"
             class="form-control"
+            name="title"
             id="title"
             aria-describedby="emailHelp"
           />
         </div>
         <div class="mb-3">
           <label for="desc" class="form-label">Description</label>
-          <input type="text" class="form-control" id="desc" />
+          <input type="text" class="form-control" name="desc" id="desc" />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-dark">Submit</button>
       </form>
     </div>
     <br />
+    <br>  
     <div class="container">
       <h2>Your ToDo</h2>
+      <br>
       <table class="table">
-        <thead>
+        
+        <tbody>
+          {% if allTodo|length ==0 %}
+            <div align="center" class="alert alert-light" role="alert">
+  No existing tasks!
+</div>
+            {% else %}
+            <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Sno.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Time</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
-        <tbody>
+
+          {% for todo in allTodo %}
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{todo.title}}</td>
+            <td>{{todo.desc}}</td>
+            <td>{{todo.date}}</td>
+            <td>
+            <a href="/update/{{todo.sno}}" type="button" class="btn btn-dark">Update</button>
+            <a href="/delete/{{todo.sno}}" type="button" class="btn btn-dark">Delete</button></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>John</td>
-            <td>Doe</td>
-            <td>@social</td>
-          </tr>
-        </tbody>
-      </table>
+          </tbody>
+          </table>
+          {% endfor %}
+          {% endif %}
+        
+      
     </div>
 
     <script
