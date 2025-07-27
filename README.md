@@ -39,9 +39,17 @@ It demonstrates a lightweight Python backend using the Flask microframework and 
    ```
 
 3. Install dependencies :
+
+   ```bash
    pip install -r requirements.txt
+
+   ```
 
 4. Run the app:
    python first.py
 
 ---
+
+```
+
+```
