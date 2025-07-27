@@ -50,6 +50,3 @@ It demonstrates a lightweight Python backend using the Flask microframework and 
 
 ---
 
-```
-
-```
