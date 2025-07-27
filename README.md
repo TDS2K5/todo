@@ -29,8 +29,14 @@ It demonstrates a lightweight Python backend using the Flask microframework and 
    ```
 
 2. Create a virtual environment :
+
+   ```bash
    python -m venv venv
-   source venv/bin/activate # On Windows: venv\Scripts\activate
+   source venv/bin/activate
+
+   # On Windows: venv\Scripts\activate
+
+   ```
 
 3. Install dependencies :
    pip install -r requirements.txt
