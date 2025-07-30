@@ -23,8 +23,8 @@ It demonstrates a lightweight Python backend using the Flask microframework and 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/todo-flask.git
-   cd todo-flask
+   git clone https://github.com/TDS2K5/todo.git
+   cd todo
 
    ```
 
@@ -46,7 +46,10 @@ It demonstrates a lightweight Python backend using the Flask microframework and 
    ```
 
 4. Run the app:
-   python first.py
 
+   ```bash
+   python first.py
+   
+   ```
 ---
 
