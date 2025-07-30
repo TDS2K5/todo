@@ -16,7 +16,7 @@ class Todo(db.Model):
         return  f"{self.sno} - {self.title}"
 with app.app_context():
     db.create_all()
-# 
+
 @app.route("/", methods=['GET','post'])
 def hello_world():
     if request.method=='POST':
