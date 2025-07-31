@@ -1,0 +1,33 @@
+name: Flask CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Lint (optional)
+        run: |
+          echo "Add flake8 or other linters here"
+
+      - name: Run Flask App (for test)
+        run: |
+          python first.py &
+          sleep 5
+          curl -f http://localhost:5000 || exit 1
+
